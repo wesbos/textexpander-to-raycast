@@ -17,22 +17,19 @@ type RaycastSnippet = {
 }
 
 function convertToRaycast(snippet: TextExpanderSnippet): RaycastSnippet | undefined {
-
-  const name = snippet.string.at(0);
-  const keyword = snippet.string.at(1);
-  const text = snippet.string.at(2);
-  if(!name || !text) {
-    console.warn('Skipping this snippet because it doesnt have a name and text', { name, text });
+  const expansion = snippet.string.at(0);
+  const description = snippet.string.at(1);
+  const snippetValue = snippet.string.at(2);
+  if(!expansion || !snippetValue) {
+    console.warn('Skipping this snippet because it doesnt have an expansion or value', {
+      expansion, snippetValue });
     return;
   }
   console.log('Converting', snippet.string);
   return {
-    // Expansion → Name
-    name,
-    // Description → Keyword
-    keyword,
-    // Snippet Value → Text
-    text,
+    name: description || expansion, // description → Name, or expansion → Name
+    keyword: expansion, // expansion → Keyword
+    text: snippetValue, // Snippet Value → Text
   }
 }
 
