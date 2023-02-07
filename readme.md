@@ -12,7 +12,9 @@ You can generate this folder by hittingt he "backup now" button in text expander
 
 2. Run this index.ts script with `deno` (https://deno.land/)
 
+```
 deno run --unstable https://raw.githubusercontent.com/wesbos/textexpander-to-raycast/main/index.ts
+```
 
 It will ask to allow read file access to read your snippets backup, and then ask for write file access to write the snippets.json file.
 

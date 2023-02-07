@@ -47,4 +47,5 @@ const raycastSnippets = snippets.map(convertToRaycast).filter(Boolean);
 
 console.log(`Converted ${raycastSnippets.length} Snippets to Raycast`);
 await Deno.writeFile('snippets.json', new TextEncoder().encode(JSON.stringify(raycastSnippets, null, 2)));
-console.log(`Your file now lives at ${Deno.cwd()}/snippets.json. Go ahead and import it into Deno`);
+
+console.log(`Your file now lives at ${Deno.cwd()}/snippets.json. Go ahead and import it into Raycast:`);
